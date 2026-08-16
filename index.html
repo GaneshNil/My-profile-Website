@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Ganesh Nil - Developer, Creator & Problem Solver. Modern, high-performance portfolio featuring WebGL shaders, 3D interactive design, and full-stack projects." />
+  <meta name="keywords"
+    content="Ganesh Nil, Portfolio, Web Developer, Full Stack, Software Engineer, JavaScript, Python, React, Three.js" />
+  <meta name="author" content="Ganesh Nil" />
+  <title>Ganesh Nil | Cinematic Developer Portfolio</title>
+
+  <!-- Google Fonts: Geist, JetBrains Mono & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- WebGL Fluid Background Layer -->
+  <div id="shader-bg-container">
+    <canvas id="shader-canvas"></canvas>
+  </div>
+  <div class="vignette-overlay"></div>
+
+  <!-- Custom Glowing Dual-stage Cursor (Desktop) -->
+  <div id="custom-cursor"></div>
+  <div id="custom-cursor-follower"></div>
+
+  <!-- Floating Navigation Bar -->
+  <header class="navbar-wrap">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="#home" class="nav-brand interactive" id="nav-brand">
+        <span class="brand-dot"></span>
+        <span>Ganesh Nil</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links">
+        <li class="magnetic-wrap"><a href="#home" class="nav-link active interactive magnetic-inner">Home</a></li>
+        <li class="magnetic-wrap"><a href="#about" class="nav-link interactive magnetic-inner">About</a></li>
+        <li class="magnetic-wrap"><a href="#projects" class="nav-link interactive magnetic-inner">Projects</a></li>
+        <li class="magnetic-wrap"><a href="#social" class="nav-link interactive magnetic-inner">Connect</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <div class="magnetic-wrap nav-cta-btn">
+        <a href="#connect" class="btn-primary btn-pill interactive magnetic-inner" id="nav-connect-btn">
+          <span>Connect</span>
+          <span class="material-symbols-outlined" style="font-size: 16px;">bolt</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn interactive" id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <a href="#home" class="mobile-nav-link active"><span>Home</span> <span
+          class="material-symbols-outlined">north_east</span></a>
+      <a href="#about" class="mobile-nav-link"><span>About</span> <span
+          class="material-symbols-outlined">north_east</span></a>
+      <a href="#projects" class="mobile-nav-link"><span>Projects</span> <span
+          class="material-symbols-outlined">north_east</span></a>
+      <a href="#social" class="mobile-nav-link"><span>Connect</span> <span
+          class="material-symbols-outlined">north_east</span></a>
+      <a href="#connect" class="btn-primary" style="width: 100%; text-align: center; margin-top: 8px;">Get In Touch</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <!-- 3D Three.js Floating Geometric Scene -->
+      <div class="hero-3d-scene" id="hero-3d-container"></div>
+
+      <div class="container hero-content">
+        <div class="hero-greeting animate-fade-up">
+          <span class="material-symbols-outlined" style="font-size: 16px;">terminal</span>
+          <span>HELLO, I'M GANESH NIL</span>
+        </div>
+
+        <h1 class="hero-title animate-fade-up delay-100">
+          BUILD. CREATE. <br />
+          <span class="gradient-text text-glow">EXPLORE.</span>
+        </h1>
+
+        <p class="hero-subtitle animate-fade-up delay-200">
+          Developer • Creator • Problem Solver
+        </p>
+
+        <div class="hero-actions animate-fade-up delay-300">
+          <div class="magnetic-wrap">
+            <a href="#projects" class="btn-primary interactive magnetic-inner" id="hero-explore-btn">
+              <span>EXPLORE MY WORK</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">arrow_downward</span>
+            </a>
+          </div>
+          <div class="magnetic-wrap">
+            <a href="#social" class="btn-ghost interactive magnetic-inner" id="hero-connect-btn">
+              <span>CONNECT WITH ME</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section (Bento Grid) -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <div class="section-tag">
+            <span class="material-symbols-outlined" style="font-size: 18px;">fingerprint</span>
+            <span>Profile Overview</span>
+          </div>
+          <h2 class="section-title">WHO AM I?</h2>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Main Intro Card -->
+          <div class="glass-panel about-intro-card reveal stagger-1">
+            <div class="about-glow"></div>
+            <div>
+              <p class="about-bio">
+                Hello, everyone! I’m Ganesh, a Computer Engineering student at PVG’s COET&M, currently exploring the
+                world of programming and technology.
+                I enjoy solving problems with C++, learning DSA, and building practical projects that turn ideas into
+                working solutions.
+                I’m also passionate about web development, Linux, and experimenting with new tools and technologies.
+              </p>
+            </div>
+            <div class="status-badge">
+              <span class="status-indicator"></span>
+              <span>sys.status: "Software Developer &amp; AI Enthusiast"</span>
+            </div>
+          </div>
+
+          <!-- Stats & Tech Grid -->
+          <div class="bento-subgrid">
+            <!-- Projects Stat -->
+            <div class="glass-panel glass-panel-hover stat-card tilt-card interactive reveal stagger-2">
+              <span class="material-symbols-outlined stat-icon">folder_open</span>
+              <div>
+                <div class="stat-number">2</div>
+                <div class="stat-label">Major Projects</div>
+              </div>
+            </div>
+
+            <!-- Repositories Stat -->
+            <div class="glass-panel glass-panel-hover stat-card tilt-card interactive reveal stagger-3">
+              <span class="material-symbols-outlined stat-icon">source</span>
+              <div>
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Code Repositories</div>
+              </div>
+            </div>
+
+            <!-- Tech Stack Card -->
+            <div class="glass-panel glass-panel-hover tech-stack-card tilt-card interactive reveal stagger-4">
+              <div class="tech-header">
+                <span class="material-symbols-outlined">memory</span>
+                <span>Core Tech Stack (10+)</span>
+              </div>
+              <div class="tech-chips">
+                <span class="tech-chip">JavaScript</span>
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">React</span>
+                <span class="tech-chip">Node.js</span>
+                <span class="tech-chip">Tailwind CSS</span>
+                <span class="tech-chip">Three.js</span>
+                <span class="tech-chip">SQL</span>
+                <span class="tech-chip">Git / GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <div class="section-tag">
+            <span class="material-symbols-outlined" style="font-size: 18px;">code_blocks</span>
+            <span>Featured Repositories</span>
+          </div>
+          <h2 class="section-title">MY CODE. MY EXPERIMENTS.</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Aurum & Co. Jewelry Platform -->
+          <article class="glass-panel glass-panel-hover project-card tilt-card interactive reveal stagger-1"
+            id="project-aurum">
+            <div class="project-preview">
+              <img src="assets/Vaishnavi-Alankar-Website-PNG.jpg" alt="Aurum & Co. Luxury Jewelry Shop Platform"
+                class="project-img" loading="lazy" />
+              <div class="project-overlay"></div>
+              <span class="project-badge">E-Commerce UI / Web</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Vaishnavi Alankar Jewellers</h3>
+              <p class="project-desc">
+                A premium jewelry shop platform built with modern web technologies. Focuses on high-performance image
+                rendering, dynamic luxury dark-mode aesthetics, and seamless user checkout flows.
+              </p>
+              <div class="project-footer">
+                <div class="project-lang">
+                  <span class="lang-dot lang-js"></span>
+                  <span>JavaScript</span>
+                </div>
+                <a href="https://github.com/GaneshNil/My-first-website-Vaishnavi-Alankar/blob/main/README.md"
+                  target="_blank" rel="noopener noreferrer" class="project-link-icon"
+                  aria-label="View Aurum & Co. on GitHub">
+                  <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Student Record Management System -->
+          <article class="glass-panel glass-panel-hover project-card tilt-card interactive reveal stagger-2"
+            id="project-student-system">
+            <div class="project-preview">
+              <img src="assets/student-system.jpg" alt="Student Record Management System Dashboard" class="project-img"
+                loading="lazy" />
+              <div class="project-overlay"></div>
+              <span class="project-badge">System Tool / Data</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Student Record Management</h3>
+              <p class="project-desc">
+                A robust backend and management system designed for tracking academic progress, enrollment trends, and
+                departmental metrics. Features a technical dashboard aesthetic with deep data integration.
+              </p>
+              <div class="project-footer">
+                <div class="project-lang">
+                  <span class="lang-dot lang-python"></span>
+                  <span>Python</span>
+                </div>
+                <a href="https://github.com/GaneshNil/Student_Record_Management_System_Using_Excel_Files/blob/main/README.md"
+                  target="_blank" rel="noopener noreferrer" class="project-link-icon"
+                  aria-label="View Student Record System on GitHub">
+                  <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Connect Hub -->
+    <section class="section" id="social">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <div class="section-tag">
+            <span class="material-symbols-outlined" style="font-size: 18px;">hub</span>
+            <span>Network &amp; Social</span>
+          </div>
+          <h2 class="section-title">CONNECT</h2>
+        </div>
+
+        <div class="social-grid">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/ganesh-nil-36a520290" target="_blank" rel="noopener noreferrer"
+            class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-1"
+            id="social-linkedin">
+            <div class="social-icon-box icon-linkedin">
+              <span class="material-symbols-outlined">work</span>
+            </div>
+            <h3 class="social-name">LinkedIn</h3>
+            <p class="social-handle">Professional Network</p>
+            <span class="social-action">View Profile &rarr;</span>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/GaneshNil?tab=repositories" target="_blank" rel="noopener noreferrer"
+            class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-2" id="social-github">
+            <div class="social-icon-box icon-github">
+              <span class="material-symbols-outlined">code</span>
+            </div>
+            <h3 class="social-name">GitHub</h3>
+            <p class="social-handle">Code Repositories</p>
+            <span class="social-action">View Code &rarr;</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/ganesh_54.35/" target="_blank" rel="noopener noreferrer"
+            class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-3"
+            id="social-instagram">
+            <div class="social-icon-box icon-instagram">
+              <span class="material-symbols-outlined">photo_camera</span>
+            </div>
+            <h3 class="social-name">Instagram</h3>
+            <p class="social-handle">Life &amp; Visuals</p>
+            <span class="social-action">View Gallery &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="section" id="connect" style="padding-top: 40px;">
+      <div class="container">
+        <div class="glass-panel cta-box reveal">
+          <div class="cta-glow"></div>
+          <h2 class="cta-title">LET'S BUILD SOMETHING GREAT.</h2>
+          <p class="cta-desc">
+            Open for new opportunities, collaborations, and technical challenges. Let's create impactful digital
+            products together.
+          </p>
+          <div class="magnetic-wrap">
+            <a href="mailto:ganeshneel278@gmail.com" class="btn-primary interactive magnetic-inner"
+              id="contact-action-btn">
+              <span>START A CONVERSATION</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span>Ganesh Nil</span>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Ganesh Nil. Engineered for Performance &amp; Aesthetics.
+      </div>
+      <ul class="footer-links">
+        <li class="magnetic-wrap"><a href="https://github.com/GaneshNil?tab=repositories" target="_blank"
+            rel="noopener noreferrer" class="footer-link interactive magnetic-inner">GitHub</a></li>
+        <li class="magnetic-wrap"><a href="https://www.linkedin.com/in/ganesh-nil-36a520290" target="_blank"
+            rel="noopener noreferrer" class="footer-link interactive magnetic-inner">LinkedIn</a></li>
+        <li class="magnetic-wrap"><a href="https://www.instagram.com/ganesh_54.35/" target="_blank"
+            rel="noopener noreferrer" class="footer-link interactive magnetic-inner">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+
+</html>
