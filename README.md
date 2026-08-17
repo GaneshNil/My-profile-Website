@@ -6,7 +6,7 @@
 
 Hi! I'm **Ganesh**, a Computer Engineering student at **PVG's College of Engineering and Technology & Management**. I enjoy learning new technologies, solving programming problems, and building projects that turn ideas into practical solutions.
 
-Website Link : https://my-portfolio-opal-eight-0kt1znrinf.vercel.app/
+Website Link : https://ganeshnil-portfolio.vercel.app/
 
 This website is my personal space on the web where I showcase my **skills, projects, achievements, interests, and development journey**.
 
