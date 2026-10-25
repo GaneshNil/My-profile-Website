@@ -18,10 +18,18 @@
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     if (!gl) return;
 
+    let lastW = window.innerWidth;
+    let lastH = window.innerHeight;
     function syncCanvasSize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = window.innerWidth;
       const h = window.innerHeight;
+      // Guard against mobile address bar scroll resize thrashing
+      if (canvas.width && w === lastW && Math.abs(h - lastH) < 120) {
+        return;
+      }
+      lastW = w;
+      lastH = h;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       if (canvas.width !== Math.floor(w * dpr) || canvas.height !== Math.floor(h * dpr)) {
         canvas.width = Math.floor(w * dpr);
         canvas.height = Math.floor(h * dpr);
@@ -255,8 +263,19 @@
       mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
     });
 
+    let isHeroVisible = true;
+    if ('IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isHeroVisible = entry.isIntersecting;
+        });
+      }, { threshold: 0.05 });
+      heroObserver.observe(container);
+    }
+
     function animate() {
       requestAnimationFrame(animate);
+      if (!isHeroVisible) return;
 
       targetX += (mouseX - targetX) * 0.05;
       targetY += (mouseY - targetY) * 0.05;
@@ -341,7 +360,8 @@
   // 4. 3D Card Perspective Tilt
   // ==========================================
   function init3DTilt() {
-    if (prefersReducedMotion) return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    if (prefersReducedMotion || isTouch) return;
 
     const tiltCards = document.querySelectorAll('.tilt-card');
     tiltCards.forEach((card) => {
@@ -373,7 +393,8 @@
   // 5. Magnetic Hover on Buttons and Links
   // ==========================================
   function initMagnetic() {
-    if (prefersReducedMotion) return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    if (prefersReducedMotion || isTouch) return;
 
     const magneticWraps = document.querySelectorAll('.magnetic-wrap');
     magneticWraps.forEach((wrap) => {
@@ -413,7 +434,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px 40px 0px' });
 
       reveals.forEach((el) => observer.observe(el));
     } else {
@@ -466,7 +487,9 @@
 
     function setDrawerState(isOpen) {
       drawer.classList.toggle('open', isOpen);
+      drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', isOpen);
       const icon = toggleBtn.querySelector('.material-symbols-outlined');
       if (icon) {
         icon.textContent = isOpen ? 'close' : 'menu';
@@ -754,6 +777,9 @@
   // 10. macOS-Inspired Tactile Interaction Enhancement
   // ==========================================
   function initMacInteractions() {
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    if (isTouch) return;
+
     const interactiveElements = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-ghost, .btn-pill, .case-study-btn, .project-action-link, .skill-pill');
     
     interactiveElements.forEach((el) => {

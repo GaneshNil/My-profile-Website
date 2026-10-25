@@ -47,6 +47,12 @@
   --radius-full: 9999px;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --section-gap: clamp(56px, 12vw, 84px);
+  }
+}
+
 /* Reset & Base Setup */
 *,
 *::before,
@@ -72,6 +78,10 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -294,7 +304,7 @@ body.modal-open #custom-cursor-follower,
 /* Header & Nav */
 .navbar-wrap {
   position: fixed;
-  top: 20px;
+  top: max(14px, env(safe-area-inset-top, 14px));
   left: 0;
   right: 0;
   z-index: 1000;
@@ -319,6 +329,12 @@ body.modal-open #custom-cursor-follower,
   transition: all 0.3s ease;
 }
 
+@media (max-width: 859px) {
+  .navbar {
+    padding: 8px 16px;
+  }
+}
+
 .nav-brand {
   font-family: var(--font-display);
   font-weight: 800;
@@ -328,6 +344,14 @@ body.modal-open #custom-cursor-follower,
   display: flex;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
+}
+
+@media (max-width: 859px) {
+  .nav-brand {
+    font-size: 17px;
+    gap: 8px;
+  }
 }
 
 .brand-dot {
@@ -399,13 +423,15 @@ body.modal-open #custom-cursor-follower,
   width: 100%;
 }
 
-.nav-cta-btn {
-  display: none;
+.nav-cta-btn,
+.magnetic-wrap.nav-cta-btn {
+  display: none !important;
 }
 
 @media (min-width: 860px) {
-  .nav-cta-btn {
-    display: inline-flex;
+  .nav-cta-btn,
+  .magnetic-wrap.nav-cta-btn {
+    display: inline-flex !important;
   }
 }
 
@@ -415,14 +441,17 @@ body.modal-open #custom-cursor-follower,
   justify-content: center;
   color: var(--primary-dim);
   font-size: 24px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--outline);
   cursor: pointer;
   outline: none;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
+  touch-action: manipulation;
 }
 
 .mobile-menu-btn:hover,
@@ -434,33 +463,39 @@ body.modal-open #custom-cursor-follower,
 
 @media (min-width: 860px) {
   .mobile-menu-btn {
-    display: none;
+    display: none !important;
   }
 }
 
 /* Mobile Drawer */
 .mobile-nav-drawer {
   position: fixed;
-  top: 85px;
+  top: calc(max(14px, env(safe-area-inset-top, 14px)) + 56px);
   left: var(--gutter);
   right: var(--gutter);
-  background: rgba(16, 16, 22, 0.95);
+  background: rgba(16, 16, 22, 0.96);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(0, 242, 255, 0.2);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 20px;
   z-index: 999;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 242, 255, 0.1);
-  transform: translateY(-20px);
+  transform: translateY(-16px);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              visibility 0.25s ease;
   max-height: calc(100vh - 100px);
+  max-height: calc(100dvh - 100px);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 860px) {
@@ -472,22 +507,25 @@ body.modal-open #custom-cursor-follower,
 .mobile-nav-drawer.open {
   transform: translateY(0);
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
 .mobile-nav-link {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   color: var(--on-surface);
   text-transform: uppercase;
-  padding: 10px 14px;
+  padding: 12px 14px;
+  min-height: 44px;
   border-radius: var(--radius-sm);
   transition: background 0.2s, color 0.2s, border-color 0.2s;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-left: 2px solid transparent;
+  touch-action: manipulation;
 }
 
 .mobile-nav-link:hover,
@@ -779,6 +817,9 @@ button:focus-visible {
   border-radius: var(--radius-sm);
   border: 1px solid rgba(0, 242, 255, 0.2);
   width: fit-content;
+  max-width: 100%;
+  word-break: break-word;
+  line-height: 1.45;
 }
 
 .status-indicator {
@@ -1849,9 +1890,9 @@ button:focus-visible {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 8, 12, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(6, 7, 10, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -1871,7 +1912,7 @@ button:focus-visible {
   width: 100%;
   max-width: 860px;
   max-height: 88vh;
-  background: rgba(16, 16, 22, 0.95);
+  background: #0e0f14;
   border: 1px solid rgba(0, 242, 255, 0.25);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 242, 255, 0.12);
   border-radius: var(--radius-lg);
@@ -1921,8 +1962,10 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--on-surface);
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1930,6 +1973,7 @@ button:focus-visible {
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
 .modal-close-btn:hover {
@@ -1942,6 +1986,10 @@ button:focus-visible {
 .modal-body {
   padding: 28px;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 242, 255, 0.25) transparent;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -2004,44 +2052,168 @@ button:focus-visible {
     --gutter: 16px;
   }
 
-  .hero-title {
-    font-size: 34px;
+  .hero-section {
+    padding-top: 86px;
+    padding-bottom: 24px;
+    min-height: auto;
   }
 
-  .btn-primary,
-  .btn-ghost,
-  .btn-secondary {
-    width: 100%;
-    padding: 12px 16px;
+  .hero-title {
+    font-size: clamp(22px, 6.8vw, 32px);
+    line-height: 1.22;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 22px;
   }
 
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
-  .hero-actions .magnetic-wrap {
+  .hero-actions .magnetic-wrap,
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
     width: 100%;
+    min-height: 44px;
+  }
+
+  .about-intro-card {
+    padding: 20px;
+  }
+
+  .about-bio {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .status-badge {
+    font-size: 11px;
+    padding: 6px 10px;
+    line-height: 1.4;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .tech-stack-card {
+    padding: 18px;
+  }
+
+  .tech-chip {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .project-body {
+    padding: 18px;
+  }
+
+  .project-title {
+    font-size: 20px;
+  }
+
+  .project-desc {
+    font-size: 13.5px;
   }
 
   .project-footer {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .project-action-links {
-    width: 100%;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .project-action-link,
+  .case-study-btn {
+    min-height: 42px;
+    padding: 8px 12px;
+    touch-action: manipulation;
+  }
+
+  .skill-cat-card {
+    padding: 18px;
+  }
+
+  .soft-skill-card {
+    padding: 18px;
+  }
+
+  .timeline-card,
+  .cert-card {
+    padding: 18px;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .cta-box {
+    padding: 36px 18px;
+  }
+
+  .cta-title {
+    font-size: clamp(24px, 6.2vw, 36px);
+  }
+
+  .cta-desc {
+    font-size: 14.5px;
+    margin-bottom: 28px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
   }
 
   .modal-dialog {
+    max-height: 94dvh;
     max-height: 94vh;
+    border-radius: var(--radius-md);
   }
 
   .modal-header,
   .modal-body,
   .modal-footer {
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .modal-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .modal-footer .btn-primary,
+  .modal-footer .btn-secondary {
+    flex: 1 1 130px;
+    min-height: 44px;
+  }
+
+  .footer {
+    padding-bottom: max(48px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+  }
+}
+
+@media (max-width: 400px) {
+  .stat-projects-list {
+    grid-template-columns: 1fr;
+  }
+
+  .social-card {
+    padding: 24px 16px;
+    min-height: auto;
   }
 }
 
