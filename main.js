@@ -192,7 +192,7 @@
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(65, width / height, 0.1, 1000);
-    camera.position.z = 4.2;
+    camera.position.z = 4.8;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
     renderer.setSize(width, height);
@@ -302,18 +302,21 @@
     let followerY = mouseY;
 
     document.addEventListener('mousemove', (e) => {
+      if (document.body.classList.contains('modal-open')) return;
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
 
     function renderCursor() {
-      cursorX += (mouseX - cursorX) * 0.35;
-      cursorY += (mouseY - cursorY) * 0.35;
-      followerX += (mouseX - followerX) * 0.12;
-      followerY += (mouseY - followerY) * 0.12;
+      if (!document.body.classList.contains('modal-open')) {
+        cursorX += (mouseX - cursorX) * 0.35;
+        cursorY += (mouseY - cursorY) * 0.35;
+        followerX += (mouseX - followerX) * 0.12;
+        followerY += (mouseY - followerY) * 0.12;
 
-      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-      follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+        follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+      }
 
       requestAnimationFrame(renderCursor);
     }
@@ -322,21 +325,14 @@
     const hoverElements = document.querySelectorAll('.interactive, a, button, .tilt-card');
     hoverElements.forEach((el) => {
       el.addEventListener('mouseenter', () => {
+        if (document.body.classList.contains('modal-open') || el.closest('.modal-overlay')) return;
         cursor.classList.add('hovered');
         follower.classList.add('hovered');
-        if (el.classList.contains('project-card')) {
-          cursor.textContent = 'VIEW';
-        } else if (el.classList.contains('social-card')) {
-          cursor.textContent = 'GO';
-        } else {
-          cursor.textContent = '';
-        }
       });
 
       el.addEventListener('mouseleave', () => {
         cursor.classList.remove('hovered');
         follower.classList.remove('hovered');
-        cursor.textContent = '';
       });
     });
   }
@@ -523,12 +519,252 @@
       const email = 'ganeshneel278@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
         const originalText = contactBtn.innerHTML;
-        contactBtn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span> Email Copied to Clipboard!';
+        contactBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">check</span> Email Copied to Clipboard!';
         setTimeout(() => {
           contactBtn.innerHTML = originalText;
         }, 2500);
       }).catch(() => {
         window.location.href = `mailto:${email}`;
+      });
+    });
+  }
+
+  // ==========================================
+  // 9. Project Case Studies Modal Engine
+  // ==========================================
+  const caseStudiesData = {
+    galaxy: {
+      title: "Galaxy Mobile Gallery Semi E-Commerce Website",
+      category: "E-Commerce / Full-Stack Platform",
+      role: "Web Developer / AI-Assisted Development",
+      stack: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "REST APIs", "Framer Motion", "Vercel", "Technical SEO"],
+      liveUrl: "https://galaxymobilegallery.xyz/",
+      repoUrl: null,
+      overview: "A responsive smartphone-store website built for Galaxy Mobile Gallery in Begampur, Solapur. Designed to streamline product discovery, Vivo smartphone specifications, price awareness, and administrative catalog management with Supabase.",
+      architecture: "Engineered on Next.js 15 App Router and React 19 for fast server-driven rendering and responsive layouts. Supabase PostgreSQL serves as the relational data store with optimized queries for device specifications.",
+      contribution: "Designed and implemented the product listing and detail views, side-by-side specification comparison trays, Supabase table integration, and targeted technical SEO (custom metadata, Open Graph tags, JSON-LD, sitemap) to ensure strong local discovery.",
+      challenges: "Structuring large specification datasets (chipsets, cameras, display panels, batteries) into a fluid, responsive comparison view on mobile viewports. Addressed by designing horizontally swipeable comparison columns with fixed attribute labels.",
+      limitations: "Focuses on product showcase, device comparison, and in-store inquiry routing; does not process online credit card transactions or third-party courier dispatch.",
+      learnings: "Deepened practical mastery of Next.js 15 App Router architecture, relational data modeling with Supabase, and mobile-first responsive performance."
+    },
+    agro: {
+      title: "AGRO VISIONS",
+      category: "AgTech / SIH 2026 Group Project",
+      role: "Team Member — Full-Stack Development",
+      stack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Supabase", "PostgreSQL", "Python", "Market Intelligence", "Govt Data APIs"],
+      liveUrl: "https://agrovisions.vercel.app/",
+      repoUrl: "https://github.com/GaneshNil/SIH_26132",
+      overview: "Collaborated on an agricultural platform concept developed for Smart India Hackathon (SIH 2026). The project addresses post-harvest challenges by connecting farmers, Farmer Producer Organizations (FPOs), and verified buyers through market intelligence and structured trade negotiation.",
+      architecture: "Composed of a React 19 + TypeScript frontend bundled with Vite, an Express.js API gateway, Python backend components for market analysis heuristics, and Supabase PostgreSQL for structured data persistence.",
+      contribution: "Contributed as a team member to full-stack implementation: built modular React UI components, wired API endpoints to Express routes, managed Supabase client integration, and ensured responsive dashboard views.",
+      challenges: "Integrating disparate subsystems (crop grading preview, market trend insights, and buyer negotiation cards) into a cohesive dashboard suitable for rural and agricultural users.",
+      limitations: "AI quality grading and market prediction routines are hackathon prototypes built for demonstration; not connected to live government commodity exchange clearinghouses.",
+      learnings: "Strengthened collaborative Git workflows, branch synchronization, API contract alignment, and agile full-stack problem solving under hackathon constraints."
+    },
+    vaishnavi: {
+      title: "Vaishnavi Alankar Jewellers",
+      category: "Luxury Showcase / Creative Frontend",
+      role: "Frontend Developer / AI-Assisted Web Development",
+      stack: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Three.js", "GSAP", "Responsive Web Design", "Vercel"],
+      liveUrl: "https://vaishnavi-alankar.vercel.app/",
+      repoUrl: "https://github.com/GaneshNil/My-first-website-Vaishnavi-Alankar",
+      overview: "A luxury jewelry showcase website exploring visual storytelling, interactive 3D visual elements, and cinematic transitions for jewellery collections.",
+      architecture: "Client-side interactive frontend utilizing Three.js for 3D model interaction, GSAP for smooth scroll choreography, and custom dark-mode aesthetics.",
+      contribution: "Sole frontend developer. Designed the dark-luxury visual theme, configured Three.js scene lighting and orbital controls, developed responsive product showcases, and deployed to Vercel.",
+      challenges: "Maintaining high frame rates with Three.js rendering while running GSAP timeline animations on mobile devices. Solved by optimizing geometry polygon counts and pausing render loops during out-of-viewport scrolling.",
+      limitations: "Conceived as an aesthetic showcase and brand experience; does not include payment processing or dynamic inventory cart management.",
+      learnings: "Solidified core concepts in 3D WebGL scenes, camera lighting, GSAP animation triggers, and web hosting workflows."
+    },
+    student: {
+      title: "Student Record Management System Using Excel Files",
+      category: "Data Management / CLI Tool",
+      role: "Python Developer",
+      stack: ["Python 3", "openpyxl", "Command-Line Interface", "Excel Data Management", "File Handling", "Git"],
+      liveUrl: null,
+      repoUrl: "https://github.com/GaneshNil/Student_Record_Management_System_Using_Excel_Files",
+      overview: "A Python application designed to manage, search, and update student academic records directly within Excel (.xlsx) workbooks without requiring a dedicated database server daemon.",
+      architecture: "Modular Python CLI program with dedicated modules for file verification, row indexing, searching by student roll number, record insertion, and error-safe updates using openpyxl.",
+      contribution: "Sole developer. Engineered the complete CLI workflow, designed data search and validation logic, implemented openpyxl sheet manipulation, and documented repository setup.",
+      challenges: "Preventing data corruption and schema divergence when reading and updating multi-column Excel workbooks via Python. Solved by implementing strict cell validation and fallback backup files.",
+      limitations: "Operates as a local command-line interface tool; intended for single-operator administrative tasks rather than concurrent web sessions.",
+      learnings: "Gained hands-on experience in defensive programming, structured file I/O, error handling, and data manipulation."
+    }
+  };
+
+  function initCaseStudies() {
+    const modal = document.getElementById('case-study-modal');
+    if (!modal) return;
+
+    const modalTitle = document.getElementById('modal-project-title');
+    const modalBadge = document.getElementById('modal-project-badge');
+    const modalContent = document.getElementById('modal-project-content');
+    const modalLiveBtn = document.getElementById('modal-live-btn');
+    const modalRepoBtn = document.getElementById('modal-repo-btn');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    let previousActiveElement = null;
+
+    function openModal(projectId) {
+      const data = caseStudiesData[projectId];
+      if (!data) return;
+
+      previousActiveElement = document.activeElement;
+
+      modalTitle.textContent = data.title;
+      modalBadge.textContent = `${data.category} • ${data.role}`;
+
+      modalContent.innerHTML = `
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">overview</span>
+            <span>Project Overview</span>
+          </div>
+          <p>${data.overview}</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">account_tree</span>
+            <span>Technical Architecture</span>
+          </div>
+          <p>${data.architecture}</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">person_check</span>
+            <span>My Contribution & Role</span>
+          </div>
+          <p>${data.contribution}</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">construction</span>
+            <span>Key Challenges & Solutions</span>
+          </div>
+          <p>${data.challenges}</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">info</span>
+            <span>Current Scope & Limitations</span>
+          </div>
+          <p>${data.limitations}</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">school</span>
+            <span>Key Takeaways</span>
+          </div>
+          <p>${data.learnings}</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <span class="material-symbols-outlined" style="font-size: 16px;">layers</span>
+            <span>Technologies Used</span>
+          </div>
+          <div class="case-tech-list">
+            ${data.stack.map(tech => `<span class="project-tag">${tech}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      if (data.liveUrl) {
+        modalLiveBtn.style.display = 'inline-flex';
+        modalLiveBtn.href = data.liveUrl;
+      } else {
+        modalLiveBtn.style.display = 'none';
+      }
+
+      if (data.repoUrl) {
+        modalRepoBtn.style.display = 'inline-flex';
+        modalRepoBtn.href = data.repoUrl;
+      } else {
+        modalRepoBtn.style.display = 'none';
+      }
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
+
+      const customCursor = document.getElementById('custom-cursor');
+      const customFollower = document.getElementById('custom-cursor-follower');
+      if (customCursor) {
+        customCursor.classList.remove('hovered');
+        customCursor.textContent = '';
+        customCursor.style.display = 'none';
+      }
+      if (customFollower) {
+        customFollower.classList.remove('hovered');
+        customFollower.style.display = 'none';
+      }
+
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      document.body.style.overflow = '';
+
+      const customCursor = document.getElementById('custom-cursor');
+      const customFollower = document.getElementById('custom-cursor-follower');
+      if (window.innerWidth >= 768) {
+        if (customCursor) customCursor.style.display = 'flex';
+        if (customFollower) customFollower.style.display = 'flex';
+      }
+
+      if (previousActiveElement) {
+        previousActiveElement.focus();
+      }
+    }
+
+    document.querySelectorAll('.case-study-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectId = btn.getAttribute('data-project');
+        openModal(projectId);
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
+
+  // ==========================================
+  // 10. macOS-Inspired Tactile Interaction Enhancement
+  // ==========================================
+  function initMacInteractions() {
+    const interactiveElements = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-ghost, .btn-pill, .case-study-btn, .project-action-link, .skill-pill');
+    
+    interactiveElements.forEach((el) => {
+      el.addEventListener('mousedown', () => {
+        el.style.transform = 'scale(0.97)';
+      });
+      el.addEventListener('mouseup', () => {
+        el.style.transform = '';
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
       });
     });
   }
@@ -543,5 +779,8 @@
     initScrollReveals();
     initMobileMenu();
     initContactAction();
+    initCaseStudies();
+    initMacInteractions();
   });
 })();
+

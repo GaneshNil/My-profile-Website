@@ -4,12 +4,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganesh Nil | Developer Portfolio</title>
   <meta name="description"
-    content="Ganesh Nil - Developer, Creator & Problem Solver. Modern, high-performance portfolio featuring WebGL shaders, 3D interactive design, and full-stack projects." />
+    content="Explore Ganesh Nil's portfolio of web development projects, creative frontend experiences, Python applications, and software engineering work." />
   <meta name="keywords"
-    content="Ganesh Nil, Portfolio, Web Developer, Full Stack, Software Engineer, JavaScript, Python, React, Three.js" />
+    content="Ganesh Nil, Portfolio, Computer Engineering, Web Developer, Full Stack, Software Engineer, React, Next.js, Python, Supabase, Three.js" />
   <meta name="author" content="Ganesh Nil" />
-  <title>Ganesh Nil | Cinematic Developer Portfolio</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ganeshnil.xyz/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ganeshnil.xyz/" />
+  <meta property="og:title" content="Ganesh Nil | Developer Portfolio" />
+  <meta property="og:description"
+    content="Explore Ganesh Nil's portfolio of web development projects, creative frontend experiences, Python applications, and software engineering work." />
+  <meta property="og:site_name" content="Ganesh Nil" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:image" content="https://ganeshnil.xyz/assets/student-system.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://ganeshnil.xyz/" />
+  <meta name="twitter:title" content="Ganesh Nil | Developer Portfolio" />
+  <meta name="twitter:description"
+    content="Explore Ganesh Nil's portfolio of web development projects, creative frontend experiences, Python applications, and software engineering work." />
+  <meta name="twitter:image" content="https://ganeshnil.xyz/assets/student-system.jpg" />
+
+  <!-- Structured Data: Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://ganeshnil.xyz/#person",
+        "name": "Ganesh Nil",
+        "url": "https://ganeshnil.xyz/",
+        "jobTitle": "Computer Engineering Student & Full-Stack Developer",
+        "email": "ganeshneel278@gmail.com",
+        "sameAs": [
+          "https://github.com/GaneshNil",
+          "https://www.linkedin.com/in/ganesh-nil-36a520290/"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "PVG's College of Engineering and Technology and Management, Pune"
+        },
+        "knowsAbout": [
+          "Full-Stack Web Development",
+          "Frontend Engineering",
+          "Python Development",
+          "React",
+          "Next.js",
+          "Supabase",
+          "Data Structures and Algorithms"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ganeshnil.xyz/#website",
+        "url": "https://ganeshnil.xyz/",
+        "name": "Ganesh Nil Portfolio",
+        "description": "Developer portfolio of Ganesh Nil featuring full-stack projects, creative frontend engineering, and software development.",
+        "publisher": {
+          "@id": "https://ganeshnil.xyz/#person"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Google Fonts: Geist, JetBrains Mono & Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,7 +106,7 @@
   <!-- Floating Navigation Bar -->
   <header class="navbar-wrap">
     <nav class="navbar" aria-label="Main Navigation">
-      <a href="#home" class="nav-brand interactive" id="nav-brand">
+      <a href="#home" class="nav-brand interactive" id="nav-brand" aria-label="Ganesh Nil Homepage">
         <span class="brand-dot"></span>
         <span>Ganesh Nil</span>
       </a>
@@ -51,14 +115,16 @@
       <ul class="nav-links">
         <li class="magnetic-wrap"><a href="#home" class="nav-link active interactive magnetic-inner">Home</a></li>
         <li class="magnetic-wrap"><a href="#about" class="nav-link interactive magnetic-inner">About</a></li>
+        <li class="magnetic-wrap"><a href="#skills" class="nav-link interactive magnetic-inner">Skills</a></li>
         <li class="magnetic-wrap"><a href="#projects" class="nav-link interactive magnetic-inner">Projects</a></li>
+        <li class="magnetic-wrap"><a href="#education" class="nav-link interactive magnetic-inner">Education</a></li>
         <li class="magnetic-wrap"><a href="#social" class="nav-link interactive magnetic-inner">Connect</a></li>
       </ul>
 
       <!-- CTA Button -->
       <div class="magnetic-wrap nav-cta-btn">
         <a href="#connect" class="btn-primary btn-pill interactive magnetic-inner" id="nav-connect-btn">
-          <span>Connect</span>
+          <span>Get In Touch</span>
           <span class="material-symbols-outlined" style="font-size: 16px;">bolt</span>
         </a>
       </div>
@@ -75,7 +141,11 @@
           class="material-symbols-outlined">north_east</span></a>
       <a href="#about" class="mobile-nav-link"><span>About</span> <span
           class="material-symbols-outlined">north_east</span></a>
+      <a href="#skills" class="mobile-nav-link"><span>Skills</span> <span
+          class="material-symbols-outlined">north_east</span></a>
       <a href="#projects" class="mobile-nav-link"><span>Projects</span> <span
+          class="material-symbols-outlined">north_east</span></a>
+      <a href="#education" class="mobile-nav-link"><span>Education</span> <span
           class="material-symbols-outlined">north_east</span></a>
       <a href="#social" class="mobile-nav-link"><span>Connect</span> <span
           class="material-symbols-outlined">north_east</span></a>
@@ -96,25 +166,31 @@
         </div>
 
         <h1 class="hero-title animate-fade-up delay-100">
-          BUILD. CREATE. <br />
-          <span class="gradient-text text-glow">EXPLORE.</span>
+          BUILDING USEFUL SOFTWARE. <br />
+          <span class="gradient-text text-glow">DESIGNING MEMORABLE EXPERIENCES.</span>
         </h1>
 
         <p class="hero-subtitle animate-fade-up delay-200">
-          Developer • Creator • Problem Solver
+          Computer Engineering Student • Full-Stack Development • Creative Web Experiences
         </p>
 
         <div class="hero-actions animate-fade-up delay-300">
           <div class="magnetic-wrap">
             <a href="#projects" class="btn-primary interactive magnetic-inner" id="hero-explore-btn">
-              <span>EXPLORE MY WORK</span>
+              <span>VIEW PROJECTS</span>
               <span class="material-symbols-outlined" style="font-size: 18px;">arrow_downward</span>
             </a>
           </div>
           <div class="magnetic-wrap">
-            <a href="#social" class="btn-ghost interactive magnetic-inner" id="hero-connect-btn">
-              <span>CONNECT WITH ME</span>
-              <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+            <a href="#about" class="btn-ghost interactive magnetic-inner" id="hero-about-btn">
+              <span>ABOUT ME</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">person</span>
+            </a>
+          </div>
+          <div class="magnetic-wrap">
+            <a href="#connect" class="btn-ghost interactive magnetic-inner" id="hero-connect-btn">
+              <span>CONTACT</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
             </a>
           </div>
         </div>
@@ -129,7 +205,7 @@
             <span class="material-symbols-outlined" style="font-size: 18px;">fingerprint</span>
             <span>Profile Overview</span>
           </div>
-          <h2 class="section-title">WHO AM I?</h2>
+          <h2 class="section-title">ABOUT ME</h2>
         </div>
 
         <div class="bento-grid">
@@ -138,56 +214,271 @@
             <div class="about-glow"></div>
             <div>
               <p class="about-bio">
-                Hello, everyone! I’m Ganesh, a Computer Engineering student at PVG’s COET&M, currently exploring the
-                world of programming and technology.
-                I enjoy solving problems with C++, learning DSA, and building practical projects that turn ideas into
-                working solutions.
-                I’m also passionate about web development, Linux, and experimenting with new tools and technologies.
+                I'm Ganesh Nil, a Computer Engineering student at PVG's COET&amp;M, Pune, who enjoys turning ideas into practical digital experiences. My work spans full-stack web development, creative frontend engineering, and Python-based applications.
+              </p>
+              <p class="about-bio" style="margin-bottom: 16px;">
+                From building database-connected web platforms to experimenting with interactive 3D visuals and automation, I like exploring how technology can solve real problems while keeping the user experience at the centre.
+              </p>
+              <p class="about-bio" style="font-size: 15px; color: var(--text-muted); margin-bottom: 24px;">
+                I work with technologies including JavaScript, TypeScript, React, Next.js, Python, C++, and Supabase. I'm also developing my understanding of cloud computing, Linux, DevOps, and AI-powered applications. Beyond writing code, I enjoy experimenting with new tools, breaking down technical problems, and learning by building.
               </p>
             </div>
             <div class="status-badge">
               <span class="status-indicator"></span>
-              <span>sys.status: "Software Developer &amp; AI Enthusiast"</span>
+              <span>sys.status: "Computer Engineering Student @ PVG's COET&amp;M"</span>
             </div>
           </div>
 
           <!-- Stats & Tech Grid -->
           <div class="bento-subgrid">
-            <!-- Projects Stat -->
+            <!-- Projects Stat (Enhanced) -->
             <div class="glass-panel glass-panel-hover stat-card tilt-card interactive reveal stagger-2">
-              <span class="material-symbols-outlined stat-icon">folder_open</span>
-              <div>
-                <div class="stat-number">2</div>
-                <div class="stat-label">Major Projects</div>
+              <div class="stat-card-header">
+                <span class="stat-card-icon-wrap" aria-hidden="true">
+                  <span class="material-symbols-outlined stat-icon-custom">folder_special</span>
+                </span>
+                <span class="stat-badge-pill">
+                  <span class="stat-pulse-dot"></span>
+                  <span>4 Verified Builds</span>
+                </span>
+              </div>
+              <div class="stat-metric-block">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Major Projects Built</div>
+                <div class="stat-subdetail">Full-Stack &bull; AgTech &bull; 3D Web &bull; Systems</div>
+              </div>
+              <div class="stat-projects-list">
+                <a href="#project-galaxy" class="stat-project-chip" title="View Galaxy Store project">
+                  <span class="stat-chip-dot dot-cyan"></span>
+                  <span class="stat-chip-name">Galaxy Store</span>
+                  <span class="stat-chip-tag">Next.js</span>
+                </a>
+                <a href="#project-agro" class="stat-project-chip" title="View AGRO VISIONS platform">
+                  <span class="stat-chip-dot dot-green"></span>
+                  <span class="stat-chip-name">AGRO VISIONS</span>
+                  <span class="stat-chip-tag">AgTech</span>
+                </a>
+                <a href="#project-vaishnavi" class="stat-project-chip" title="View Vaishnavi Alankar project">
+                  <span class="stat-chip-dot dot-purple"></span>
+                  <span class="stat-chip-name">Vaishnavi</span>
+                  <span class="stat-chip-tag">Three.js</span>
+                </a>
+                <a href="#project-student-system" class="stat-project-chip" title="View Student Records project">
+                  <span class="stat-chip-dot dot-amber"></span>
+                  <span class="stat-chip-name">Student Records</span>
+                  <span class="stat-chip-tag">Python</span>
+                </a>
               </div>
             </div>
 
-            <!-- Repositories Stat -->
+            <!-- Repositories Stat (Enhanced) -->
             <div class="glass-panel glass-panel-hover stat-card tilt-card interactive reveal stagger-3">
-              <span class="material-symbols-outlined stat-icon">source</span>
-              <div>
-                <div class="stat-number">2+</div>
-                <div class="stat-label">Code Repositories</div>
+              <div class="stat-card-header">
+                <span class="stat-card-icon-wrap" aria-hidden="true">
+                  <span class="material-symbols-outlined stat-icon-custom">terminal</span>
+                </span>
+                <a href="https://github.com/GaneshNil" target="_blank" rel="noopener noreferrer" class="stat-badge-gh" title="Visit Ganesh Nil GitHub Profile">
+                  <svg class="gh-mini-icon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>@GaneshNil</span>
+                  <span class="material-symbols-outlined" style="font-size: 13px;">arrow_outward</span>
+                </a>
+              </div>
+              <div class="stat-metric-block">
+                <div class="stat-number">6+</div>
+                <div class="stat-label">Active Repositories</div>
+                <div class="stat-subdetail">Open source, tools &amp; web projects</div>
+              </div>
+              <div class="stat-repo-telemetry">
+                <div class="stat-telemetry-header">
+                  <span class="telemetry-label">Primary Stack Distribution</span>
+                  <span class="telemetry-activity"><span class="stat-pulse-dot pulse-cyan"></span> Active</span>
+                </div>
+                <div class="stat-lang-bar" aria-label="Language distribution: Python 35%, TypeScript 25%, JavaScript 20%, C++ 12%, Web 8%">
+                  <span class="lang-seg seg-py" style="width: 35%;" title="Python 35%"></span>
+                  <span class="lang-seg seg-ts" style="width: 25%;" title="TypeScript 25%"></span>
+                  <span class="lang-seg seg-js" style="width: 20%;" title="JavaScript 20%"></span>
+                  <span class="lang-seg seg-cpp" style="width: 12%;" title="C++ 12%"></span>
+                  <span class="lang-seg seg-web" style="width: 8%;" title="Three.js/CSS 8%"></span>
+                </div>
+                <div class="stat-lang-legend">
+                  <span class="legend-item"><span class="legend-dot seg-py-bg"></span>Python 35%</span>
+                  <span class="legend-item"><span class="legend-dot seg-ts-bg"></span>TypeScript 25%</span>
+                  <span class="legend-item"><span class="legend-dot seg-js-bg"></span>JS 20%</span>
+                  <span class="legend-item"><span class="legend-dot seg-cpp-bg"></span>C++ 12%</span>
+                </div>
               </div>
             </div>
 
-            <!-- Tech Stack Card -->
+            <!-- Focus Card -->
             <div class="glass-panel glass-panel-hover tech-stack-card tilt-card interactive reveal stagger-4">
               <div class="tech-header">
-                <span class="material-symbols-outlined">memory</span>
-                <span>Core Tech Stack (10+)</span>
+                <span class="material-symbols-outlined">psychology</span>
+                <span>Primary Engineering Interests</span>
               </div>
               <div class="tech-chips">
-                <span class="tech-chip">JavaScript</span>
-                <span class="tech-chip">Python</span>
-                <span class="tech-chip">React</span>
-                <span class="tech-chip">Node.js</span>
-                <span class="tech-chip">Tailwind CSS</span>
-                <span class="tech-chip">Three.js</span>
-                <span class="tech-chip">SQL</span>
-                <span class="tech-chip">Git / GitHub</span>
+                <span class="tech-chip">Full-Stack Development</span>
+                <span class="tech-chip">Creative Web Experiences</span>
+                <span class="tech-chip">Python Automation</span>
+                <span class="tech-chip">Cloud &amp; DevOps</span>
+                <span class="tech-chip">DSA Problem Solving</span>
+                <span class="tech-chip">AI-Assisted Workflows</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <div class="section-tag">
+            <span class="material-symbols-outlined" style="font-size: 18px;">terminal</span>
+            <span>Engineered Capabilities</span>
+          </div>
+          <h2 class="section-title">TECHNICAL SKILLS &amp; DISCIPLINES</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- 1. Programming Languages -->
+          <div class="glass-panel glass-panel-hover skill-cat-card tilt-card interactive reveal stagger-1">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <span class="material-symbols-outlined">code</span>
+              </div>
+              <h3 class="skill-cat-title">Programming Languages</h3>
+            </div>
+            <div class="skill-tag-cloud">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">TypeScript</span>
+              <span class="skill-pill">HTML5</span>
+              <span class="skill-pill">CSS3</span>
+            </div>
+          </div>
+
+          <!-- 2. Frontend Development -->
+          <div class="glass-panel glass-panel-hover skill-cat-card tilt-card interactive reveal stagger-2">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <span class="material-symbols-outlined">web</span>
+              </div>
+              <h3 class="skill-cat-title">Frontend Development</h3>
+            </div>
+            <div class="skill-tag-cloud">
+              <span class="skill-pill">React 19</span>
+              <span class="skill-pill">Next.js 15</span>
+              <span class="skill-pill">Tailwind CSS</span>
+              <span class="skill-pill">Responsive Design</span>
+              <span class="skill-pill">Framer Motion</span>
+              <span class="skill-pill">GSAP</span>
+              <span class="skill-pill">Three.js</span>
+            </div>
+          </div>
+
+          <!-- 3. Backend & Databases -->
+          <div class="glass-panel glass-panel-hover skill-cat-card tilt-card interactive reveal stagger-3">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <span class="material-symbols-outlined">database</span>
+              </div>
+              <h3 class="skill-cat-title">Backend &amp; Databases</h3>
+            </div>
+            <div class="skill-tag-cloud">
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">Express.js</span>
+              <span class="skill-pill">Supabase</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">RESTful APIs</span>
+            </div>
+          </div>
+
+          <!-- 4. Cloud & DevOps -->
+          <div class="glass-panel glass-panel-hover skill-cat-card tilt-card interactive reveal stagger-1">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <span class="material-symbols-outlined">cloud</span>
+              </div>
+              <h3 class="skill-cat-title">Cloud &amp; DevOps</h3>
+            </div>
+            <div class="skill-tag-cloud">
+              <span class="skill-pill">AWS (EC2, S3, VPC, IAM)</span>
+              <span class="skill-pill">Linux</span>
+              <span class="skill-pill">Docker (Basics)</span>
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+              <span class="skill-pill">Vercel</span>
+            </div>
+          </div>
+
+          <!-- 5. CS Fundamentals & Core Interests -->
+          <div class="glass-panel glass-panel-hover skill-cat-card tilt-card interactive reveal stagger-2">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <span class="material-symbols-outlined">developer_board</span>
+              </div>
+              <h3 class="skill-cat-title">CS Fundamentals</h3>
+            </div>
+            <div class="skill-tag-cloud">
+              <span class="skill-pill">OOP Concepts</span>
+              <span class="skill-pill">Data Structures &amp; Algorithms</span>
+              <span class="skill-pill">Problem-Solving</span>
+              <span class="skill-pill">File Handling</span>
+              <span class="skill-pill">Basic System Design</span>
+            </div>
+          </div>
+
+          <!-- 6. Additional Disciplines -->
+          <div class="glass-panel glass-panel-hover skill-cat-card tilt-card interactive reveal stagger-3">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <span class="material-symbols-outlined">auto_awesome</span>
+              </div>
+              <h3 class="skill-cat-title">Specialized Interests</h3>
+            </div>
+            <div class="skill-tag-cloud">
+              <span class="skill-pill">AI/ML Applications</span>
+              <span class="skill-pill">Prompt Engineering</span>
+              <span class="skill-pill">Automation</span>
+              <span class="skill-pill">Creative Motion UI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills Evidence Grid -->
+        <div class="soft-skills-grid">
+          <div class="glass-panel soft-skill-card reveal stagger-1">
+            <h4 class="soft-skill-name">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary);">build</span>
+              <span>Problem-Solving</span>
+            </h4>
+            <p class="soft-skill-evidence">
+              Demonstrated through designing algorithmic record parsing routines and structured Excel file handling logic in Python.
+            </p>
+          </div>
+
+          <div class="glass-panel soft-skill-card reveal stagger-2">
+            <h4 class="soft-skill-name">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary);">groups</span>
+              <span>Teamwork &amp; Collaboration</span>
+            </h4>
+            <p class="soft-skill-evidence">
+              Proven in the AGRO VISIONS Smart India Hackathon project by synchronizing full-stack modules across team branches.
+            </p>
+          </div>
+
+          <div class="glass-panel soft-skill-card reveal stagger-3">
+            <h4 class="soft-skill-name">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary);">sync_alt</span>
+              <span>Adaptability &amp; Learning</span>
+            </h4>
+            <p class="soft-skill-evidence">
+              Quickly adapting between Next.js full-stack frameworks, Vite frontends, Three.js 3D pipelines, and Linux command lines.
+            </p>
           </div>
         </div>
       </div>
@@ -199,69 +490,371 @@
         <div class="section-title-wrap reveal">
           <div class="section-tag">
             <span class="material-symbols-outlined" style="font-size: 18px;">code_blocks</span>
-            <span>Featured Repositories</span>
+            <span>Featured Portfolio Work</span>
           </div>
-          <h2 class="section-title">MY CODE. MY EXPERIMENTS.</h2>
+          <h2 class="section-title">PROJECT PORTFOLIO</h2>
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1: Aurum & Co. Jewelry Platform -->
+          <!-- Project 1: Galaxy Mobile Gallery -->
           <article class="glass-panel glass-panel-hover project-card tilt-card interactive reveal stagger-1"
-            id="project-aurum">
+            id="project-galaxy">
             <div class="project-preview">
-              <img src="assets/Vaishnavi-Alankar-Website-PNG.jpg" alt="Aurum & Co. Luxury Jewelry Shop Platform"
+              <img src="assets/galaxy-mobile-gallery-preview.jpg" alt="Galaxy Mobile Gallery Semi E-Commerce Website"
                 class="project-img" loading="lazy" />
               <div class="project-overlay"></div>
-              <span class="project-badge">E-Commerce UI / Web</span>
+              <span class="project-badge">Semi E-Commerce / Full-Stack</span>
             </div>
             <div class="project-body">
-              <h3 class="project-title">Vaishnavi Alankar Jewellers</h3>
+              <span class="project-role-tag">
+                <span class="material-symbols-outlined" style="font-size: 13px;">engineering</span>
+                <span>Role: Web Developer / AI-Assisted</span>
+              </span>
+              <h3 class="project-title">Galaxy Mobile Gallery Semi E-Commerce</h3>
               <p class="project-desc">
-                A premium jewelry shop platform built with modern web technologies. Focuses on high-performance image
-                rendering, dynamic luxury dark-mode aesthetics, and seamless user checkout flows.
+                A responsive smartphone-store platform featuring Vivo device listings, detailed technical specifications, product search, specification comparison, and Supabase-backed admin catalog management.
               </p>
+              <div class="project-tech-tags">
+                <span class="project-tag">Next.js 15</span>
+                <span class="project-tag">React 19</span>
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Tailwind CSS</span>
+                <span class="project-tag">Supabase</span>
+                <span class="project-tag">Technical SEO</span>
+              </div>
               <div class="project-footer">
-                <div class="project-lang">
-                  <span class="lang-dot lang-js"></span>
-                  <span>JavaScript</span>
+                <div class="project-action-links">
+                  <a href="https://galaxymobilegallery.xyz/" target="_blank" rel="noopener noreferrer"
+                    class="project-action-link" aria-label="Open Galaxy Mobile Gallery Live Website">
+                    <span>Live Site</span>
+                    <span class="material-symbols-outlined" style="font-size: 14px;">open_in_new</span>
+                  </a>
                 </div>
-                <a href="https://github.com/GaneshNil/My-first-website-Vaishnavi-Alankar/blob/main/README.md"
-                  target="_blank" rel="noopener noreferrer" class="project-link-icon"
-                  aria-label="View Aurum & Co. on GitHub">
-                  <span class="material-symbols-outlined">open_in_new</span>
-                </a>
+                <button class="case-study-btn interactive" data-project="galaxy" aria-label="Read Galaxy Mobile Gallery Case Study">
+                  <span>Case Study</span>
+                  <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span>
+                </button>
               </div>
             </div>
           </article>
 
-          <!-- Project 2: Student Record Management System -->
+          <!-- Project 2: AGRO VISIONS -->
           <article class="glass-panel glass-panel-hover project-card tilt-card interactive reveal stagger-2"
-            id="project-student-system">
+            id="project-agro">
             <div class="project-preview">
-              <img src="assets/student-system.jpg" alt="Student Record Management System Dashboard" class="project-img"
-                loading="lazy" />
+              <img src="assets/agro-visions-preview.jpg" alt="AGRO VISIONS Smart Agricultural Marketing Platform"
+                class="project-img" loading="lazy" />
               <div class="project-overlay"></div>
-              <span class="project-badge">System Tool / Data</span>
+              <span class="project-badge">AgTech / SIH 2026 Project</span>
             </div>
             <div class="project-body">
-              <h3 class="project-title">Student Record Management</h3>
+              <span class="project-role-tag">
+                <span class="material-symbols-outlined" style="font-size: 13px;">groups</span>
+                <span>Role: Team Member (SIH Group Project)</span>
+              </span>
+              <h3 class="project-title">AGRO VISIONS Platform</h3>
               <p class="project-desc">
-                A robust backend and management system designed for tracking academic progress, enrollment trends, and
-                departmental metrics. Features a technical dashboard aesthetic with deep data integration.
+                An agricultural ecosystem concept connecting farmers, FPOs, and verified buyers through market intelligence, crop quality assessment prototypes, price prediction, and transaction enablement.
               </p>
+              <div class="project-tech-tags">
+                <span class="project-tag">React 19</span>
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Vite</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Supabase</span>
+                <span class="project-tag">Python</span>
+              </div>
               <div class="project-footer">
-                <div class="project-lang">
-                  <span class="lang-dot lang-python"></span>
-                  <span>Python</span>
+                <div class="project-action-links">
+                  <a href="https://agrovisions.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    class="project-action-link" aria-label="Open AGRO VISIONS Live Website">
+                    <span>Live Demo</span>
+                    <span class="material-symbols-outlined" style="font-size: 14px;">open_in_new</span>
+                  </a>
+                  <a href="https://github.com/GaneshNil/SIH_26132" target="_blank" rel="noopener noreferrer"
+                    class="project-action-link" aria-label="View AGRO VISIONS GitHub Repository">
+                    <span>GitHub</span>
+                    <span class="material-symbols-outlined" style="font-size: 14px;">code</span>
+                  </a>
                 </div>
-                <a href="https://github.com/GaneshNil/Student_Record_Management_System_Using_Excel_Files/blob/main/README.md"
-                  target="_blank" rel="noopener noreferrer" class="project-link-icon"
-                  aria-label="View Student Record System on GitHub">
-                  <span class="material-symbols-outlined">open_in_new</span>
-                </a>
+                <button class="case-study-btn interactive" data-project="agro" aria-label="Read AGRO VISIONS Case Study">
+                  <span>Case Study</span>
+                  <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span>
+                </button>
               </div>
             </div>
           </article>
+
+          <!-- Project 3: Vaishnavi Alankar Jewellers -->
+          <article class="glass-panel glass-panel-hover project-card tilt-card interactive reveal stagger-3"
+            id="project-vaishnavi">
+            <div class="project-preview">
+              <picture>
+                <source srcset="assets/vaishnavi-alankar-opt.webp" type="image/webp" />
+                <img src="assets/vaishnavi-alankar-opt.jpg" alt="Vaishnavi Alankar Luxury Jewelry Showcase Website"
+                  class="project-img" loading="lazy" />
+              </picture>
+              <div class="project-overlay"></div>
+              <span class="project-badge">Luxury Showcase / 3D Web</span>
+            </div>
+            <div class="project-body">
+              <span class="project-role-tag">
+                <span class="material-symbols-outlined" style="font-size: 13px;">engineering</span>
+                <span>Role: Frontend Developer / AI-Assisted</span>
+              </span>
+              <h3 class="project-title">Vaishnavi Alankar Jewellers</h3>
+              <p class="project-desc">
+                A premium luxury jewelry showcase website exploring visual presentation, responsive product galleries, interactive 3D WebGL models with Three.js, and cinematic GSAP animations.
+              </p>
+              <div class="project-tech-tags">
+                <span class="project-tag">HTML5 / CSS3</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Tailwind CSS</span>
+                <span class="project-tag">Three.js</span>
+                <span class="project-tag">GSAP</span>
+                <span class="project-tag">Vercel</span>
+              </div>
+              <div class="project-footer">
+                <div class="project-action-links">
+                  <a href="https://vaishnavi-alankar.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    class="project-action-link" aria-label="Open Vaishnavi Alankar Live Website">
+                    <span>Live Site</span>
+                    <span class="material-symbols-outlined" style="font-size: 14px;">open_in_new</span>
+                  </a>
+                  <a href="https://github.com/GaneshNil/My-first-website-Vaishnavi-Alankar" target="_blank"
+                    rel="noopener noreferrer" class="project-action-link"
+                    aria-label="View Vaishnavi Alankar on GitHub">
+                    <span>GitHub</span>
+                    <span class="material-symbols-outlined" style="font-size: 14px;">code</span>
+                  </a>
+                </div>
+                <button class="case-study-btn interactive" data-project="vaishnavi" aria-label="Read Vaishnavi Alankar Case Study">
+                  <span>Case Study</span>
+                  <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Student Record Management System -->
+          <article class="glass-panel glass-panel-hover project-card tilt-card interactive reveal stagger-4"
+            id="project-student-system">
+            <div class="project-preview">
+              <img src="assets/student-record-management-preview.jpg" alt="Student Record Management System Terminal Interface"
+                class="project-img" loading="lazy" />
+              <div class="project-overlay"></div>
+              <span class="project-badge">Data Management / Python CLI</span>
+            </div>
+            <div class="project-body">
+              <span class="project-role-tag">
+                <span class="material-symbols-outlined" style="font-size: 13px;">terminal</span>
+                <span>Role: Python Developer</span>
+              </span>
+              <h3 class="project-title">Student Record Management</h3>
+              <p class="project-desc">
+                A Python-based CLI application for managing academic records in Excel (.xlsx) workbooks. Implements structured record searching by roll number, record updates, and defensive data manipulation via openpyxl.
+              </p>
+              <div class="project-tech-tags">
+                <span class="project-tag">Python 3</span>
+                <span class="project-tag">openpyxl</span>
+                <span class="project-tag">CLI Interface</span>
+                <span class="project-tag">File Handling</span>
+                <span class="project-tag">Data Validation</span>
+              </div>
+              <div class="project-footer">
+                <div class="project-action-links">
+                  <a href="https://github.com/GaneshNil/Student_Record_Management_System_Using_Excel_Files"
+                    target="_blank" rel="noopener noreferrer" class="project-action-link"
+                    aria-label="View Student Record System on GitHub">
+                    <span>GitHub Repo</span>
+                    <span class="material-symbols-outlined" style="font-size: 14px;">code</span>
+                  </a>
+                </div>
+                <button class="case-study-btn interactive" data-project="student" aria-label="Read Student Record Management Case Study">
+                  <span>Case Study</span>
+                  <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Currently Exploring (Future Project Concepts) -->
+    <section class="section" id="exploring" style="padding-top: 20px;">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <div class="section-tag">
+            <span class="material-symbols-outlined" style="font-size: 18px;">science</span>
+            <span>Forward-Looking Concepts</span>
+          </div>
+          <h2 class="section-title">CURRENTLY EXPLORING</h2>
+          <p style="color: var(--on-surface-variant); font-size: 14.5px; margin-top: 8px;">
+            Technical architectures and prototypes currently in early conceptual and exploratory phases.
+          </p>
+        </div>
+
+        <div class="exploring-grid">
+          <div class="glass-panel exploring-card reveal stagger-1">
+            <div>
+              <span class="exploring-tag">
+                <span class="material-symbols-outlined" style="font-size: 14px; color: var(--primary);">hourglass_top</span>
+                <span>Conceptual Exploration</span>
+              </span>
+              <h3 class="exploring-name">DSA Visualizer</h3>
+              <p class="exploring-desc">
+                Interactive step-by-step visualizer for graph traversals, sorting mechanics, and tree balances built with canvas animations.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-panel exploring-card reveal stagger-2">
+            <div>
+              <span class="exploring-tag">
+                <span class="material-symbols-outlined" style="font-size: 14px; color: var(--primary);">hourglass_top</span>
+                <span>Conceptual Exploration</span>
+              </span>
+              <h3 class="exploring-name">Cloud Code Workspace</h3>
+              <p class="exploring-desc">
+                Investigating browser-based sandboxed execution environments leveraging WebAssembly runtimes and lightweight Linux containers.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-panel exploring-card reveal stagger-3">
+            <div>
+              <span class="exploring-tag">
+                <span class="material-symbols-outlined" style="font-size: 14px; color: var(--primary);">hourglass_top</span>
+                <span>Conceptual Exploration</span>
+              </span>
+              <h3 class="exploring-name">AI Document Assistant</h3>
+              <p class="exploring-desc">
+                Exploring retrieval-augmented generation patterns with semantic embeddings to query technical documents and notes.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-panel exploring-card reveal stagger-1">
+            <div>
+              <span class="exploring-tag">
+                <span class="material-symbols-outlined" style="font-size: 14px; color: var(--primary);">hourglass_top</span>
+                <span>Conceptual Exploration</span>
+              </span>
+              <h3 class="exploring-name">Developer Command Center</h3>
+              <p class="exploring-desc">
+                A unified developer dashboard aggregating GitHub CI/CD status, deployment metrics, and terminal quick-commands.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-panel exploring-card reveal stagger-2">
+            <div>
+              <span class="exploring-tag">
+                <span class="material-symbols-outlined" style="font-size: 14px; color: var(--primary);">hourglass_top</span>
+                <span>Conceptual Exploration</span>
+              </span>
+              <h3 class="exploring-name">Linux System Monitor</h3>
+              <p class="exploring-desc">
+                A lightweight terminal daemon in Python and C++ monitoring CPU thresholds, memory pages, and network socket activity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <div class="section-tag">
+            <span class="material-symbols-outlined" style="font-size: 18px;">school</span>
+            <span>Academic Background</span>
+          </div>
+          <h2 class="section-title">EDUCATION &amp; CERTIFICATIONS</h2>
+        </div>
+
+        <div class="edu-cert-container">
+          <!-- Education Column -->
+          <div class="reveal stagger-1">
+            <h3 class="column-header">
+              <span class="material-symbols-outlined" style="color: var(--primary);">history_edu</span>
+              <span>Formal Education</span>
+            </h3>
+
+            <div class="timeline-list">
+              <!-- B.Tech -->
+              <div class="glass-panel timeline-card">
+                <div class="timeline-header">
+                  <h4 class="timeline-degree">B.Tech — Computer Engineering</h4>
+                  <span class="timeline-period">Sep 2025 – Sep 2029 (Ongoing)</span>
+                </div>
+                <div class="timeline-institution">PVG's College of Engineering and Technology and Management, Pune</div>
+                <p class="timeline-details">
+                  Undergraduate program focusing on Computer Science fundamentals, Object-Oriented Programming, Data Structures and Algorithms, System Design, and Modern Software Engineering.
+                </p>
+              </div>
+
+              <!-- Class XII -->
+              <div class="glass-panel timeline-card">
+                <div class="timeline-header">
+                  <h4 class="timeline-degree">Senior Secondary (Class XII)</h4>
+                  <span class="timeline-period">Completed May 2025</span>
+                </div>
+                <div class="timeline-institution">Chh. Shivaji Junior College, Solapur</div>
+                <p class="timeline-details">
+                  Higher secondary education focusing on Mathematics, Physics, and foundational science disciplines.
+                </p>
+              </div>
+
+              <!-- Class X -->
+              <div class="glass-panel timeline-card">
+                <div class="timeline-header">
+                  <h4 class="timeline-degree">Secondary Education (Class X)</h4>
+                  <span class="timeline-period">Jun 2022 – May 2023</span>
+                </div>
+                <div class="timeline-institution">Nutan Highschool, Borale</div>
+                <p class="timeline-details">
+                  Completed secondary schooling with foundational training in mathematics, languages, and general sciences.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications Column -->
+          <div class="reveal stagger-2">
+            <h3 class="column-header">
+              <span class="material-symbols-outlined" style="color: var(--secondary-light);">verified</span>
+              <span>Certifications &amp; Learning</span>
+            </h3>
+
+            <div class="timeline-list">
+              <!-- Certification 1 -->
+              <div class="glass-panel cert-card">
+                <h4 class="cert-title">Craft Precise Prompts for AI Models</h4>
+                <div class="cert-issuer">
+                  <span class="material-symbols-outlined" style="font-size: 15px;">business</span>
+                  <span>IBM SkillsBuild • Jun 2026</span>
+                </div>
+                <p class="cert-desc">
+                  Completed specialized curriculum on prompt engineering patterns, structured variable framing, few-shot conditioning, and analytical evaluation for generative large language models.
+                </p>
+              </div>
+
+              <!-- Certification 2 -->
+              <div class="glass-panel cert-card">
+                <h4 class="cert-title">Entrepreneurship Bootcamp Certificate of Participation</h4>
+                <div class="cert-issuer">
+                  <span class="material-symbols-outlined" style="font-size: 15px;">emoji_events</span>
+                  <span>Wadhwani Foundation • Feb 2026</span>
+                </div>
+                <p class="cert-desc">
+                  Participated in practical learning on user-centric problem discovery, market feasibility assessment, team collaboration, and early-stage product prototyping.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -274,43 +867,44 @@
             <span class="material-symbols-outlined" style="font-size: 18px;">hub</span>
             <span>Network &amp; Social</span>
           </div>
-          <h2 class="section-title">CONNECT</h2>
+          <h2 class="section-title">CONNECT WITH ME</h2>
         </div>
 
         <div class="social-grid">
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/ganesh-nil-36a520290" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.linkedin.com/in/ganesh-nil-36a520290/" target="_blank" rel="noopener noreferrer"
             class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-1"
-            id="social-linkedin">
+            id="social-linkedin" aria-label="Connect with Ganesh Nil on LinkedIn">
             <div class="social-icon-box icon-linkedin">
               <span class="material-symbols-outlined">work</span>
             </div>
             <h3 class="social-name">LinkedIn</h3>
-            <p class="social-handle">Professional Network</p>
+            <p class="social-handle">Professional Network &amp; Journey</p>
             <span class="social-action">View Profile &rarr;</span>
           </a>
 
           <!-- GitHub -->
-          <a href="https://github.com/GaneshNil?tab=repositories" target="_blank" rel="noopener noreferrer"
-            class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-2" id="social-github">
+          <a href="https://github.com/GaneshNil" target="_blank" rel="noopener noreferrer"
+            class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-2" id="social-github"
+            aria-label="View Ganesh Nil's GitHub Profile and Repositories">
             <div class="social-icon-box icon-github">
               <span class="material-symbols-outlined">code</span>
             </div>
             <h3 class="social-name">GitHub</h3>
-            <p class="social-handle">Code Repositories</p>
-            <span class="social-action">View Code &rarr;</span>
+            <p class="social-handle">Open Source Repositories &amp; Code</p>
+            <span class="social-action">Explore Repos &rarr;</span>
           </a>
 
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/ganesh_54.35/" target="_blank" rel="noopener noreferrer"
+          <!-- Email Direct -->
+          <a href="mailto:ganeshneel278@gmail.com"
             class="glass-panel glass-panel-hover social-card tilt-card interactive reveal stagger-3"
-            id="social-instagram">
-            <div class="social-icon-box icon-instagram">
-              <span class="material-symbols-outlined">photo_camera</span>
+            id="social-email" aria-label="Send an email to Ganesh Nil">
+            <div class="social-icon-box" style="background: rgba(0, 242, 255, 0.15); color: var(--primary); border: 1px solid rgba(0, 242, 255, 0.3);">
+              <span class="material-symbols-outlined">mail</span>
             </div>
-            <h3 class="social-name">Instagram</h3>
-            <p class="social-handle">Life &amp; Visuals</p>
-            <span class="social-action">View Gallery &rarr;</span>
+            <h3 class="social-name">Email</h3>
+            <p class="social-handle">ganeshneel278@gmail.com</p>
+            <span class="social-action">Send Message &rarr;</span>
           </a>
         </div>
       </div>
@@ -321,14 +915,13 @@
       <div class="container">
         <div class="glass-panel cta-box reveal">
           <div class="cta-glow"></div>
-          <h2 class="cta-title">LET'S BUILD SOMETHING GREAT.</h2>
+          <h2 class="cta-title">LET'S BUILD SOMETHING PRACTICAL.</h2>
           <p class="cta-desc">
-            Open for new opportunities, collaborations, and technical challenges. Let's create impactful digital
-            products together.
+            Open for software development opportunities, collaborations, and engineering challenges. Feel free to reach out.
           </p>
           <div class="magnetic-wrap">
             <a href="mailto:ganeshneel278@gmail.com" class="btn-primary interactive magnetic-inner"
-              id="contact-action-btn">
+              id="contact-action-btn" aria-label="Copy Ganesh Nil email address">
               <span>START A CONVERSATION</span>
               <span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
             </a>
@@ -338,6 +931,35 @@
     </section>
   </main>
 
+  <!-- Interactive Project Case Study Modal -->
+  <div class="modal-overlay" id="case-study-modal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="modal-project-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge" id="modal-project-badge">Project Case Study</span>
+          <h3 class="modal-title" id="modal-project-title">Project Case Study</h3>
+        </div>
+        <button class="modal-close-btn interactive" id="modal-close-btn" aria-label="Close Case Study Modal">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-project-content">
+        <!-- Injected via main.js -->
+      </div>
+      <div class="modal-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" id="modal-live-btn">
+          <span>Live Project</span>
+          <span class="material-symbols-outlined" style="font-size: 14px;">open_in_new</span>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="modal-repo-btn">
+          <span>Source Code</span>
+          <span class="material-symbols-outlined" style="font-size: 14px;">code</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-content">
@@ -345,15 +967,15 @@
         <span>Ganesh Nil</span>
       </div>
       <div class="footer-copy">
-        &copy; 2026 Ganesh Nil. Engineered for Performance &amp; Aesthetics.
+        &copy; 2026 Ganesh Nil. Computer Engineering Student &amp; Developer.
       </div>
       <ul class="footer-links">
-        <li class="magnetic-wrap"><a href="https://github.com/GaneshNil?tab=repositories" target="_blank"
+        <li class="magnetic-wrap"><a href="https://github.com/GaneshNil" target="_blank"
             rel="noopener noreferrer" class="footer-link interactive magnetic-inner">GitHub</a></li>
-        <li class="magnetic-wrap"><a href="https://www.linkedin.com/in/ganesh-nil-36a520290" target="_blank"
+        <li class="magnetic-wrap"><a href="https://www.linkedin.com/in/ganesh-nil-36a520290/" target="_blank"
             rel="noopener noreferrer" class="footer-link interactive magnetic-inner">LinkedIn</a></li>
-        <li class="magnetic-wrap"><a href="https://www.instagram.com/ganesh_54.35/" target="_blank"
-            rel="noopener noreferrer" class="footer-link interactive magnetic-inner">Instagram</a></li>
+        <li class="magnetic-wrap"><a href="mailto:ganeshneel278@gmail.com"
+            class="footer-link interactive magnetic-inner">Email</a></li>
       </ul>
     </div>
   </footer>
